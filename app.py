@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from chains import get_pass_email_langchain_normal_prompts
 # , get_pass_email_langchain_chat_prompts, \
     # get_pass_email_langchain_no_chain, get_pass_email_no_langchain
-from utils import read_docx, write_string_to_word
+from utils import read_pdf, write_string_to_word
 
 load_dotenv()
 
