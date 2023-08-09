@@ -11,11 +11,11 @@ from prompts import system_prompt, user_information
 
 def get_pass_email_langchain_normal_prompts(
         founder_names: str,
-        deck: str,
+        deck: Optional[str] = None,
         company_description: str,
         openai_api_key: str,
         model: str,
-        concerns: Optional[str] = None
+        concerns: str
 ) -> str:
     llm = ChatOpenAI(
         model=model,
