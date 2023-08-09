@@ -34,7 +34,7 @@ def get_pass_email_langchain_normal_prompts(
         
     args = {
         "founder names": founder_names,
-        "pitch deck": deck
+        "pitch deck": deck,
         "company description": company_description,
         "concerns": concerns
     }
