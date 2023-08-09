@@ -31,12 +31,8 @@ def build_streamlit_app():
         tuple(chat_model_dict.keys())
     )
 
-    model = st.sidebar.selectbox(
-        'Select the model you wish to use',
-        (
-            'gpt-3.5-turbo'
-        )
-    )
+    model = 'gpt-3.5-turbo'
+        
     # Create a text input area for founder names
     founder_names = st.text_area('write founder names here')
     
@@ -46,7 +42,7 @@ def build_streamlit_app():
 
     # If a resume has been uploaded, read the text from the docx file
     if deck is not None:
-        deck_text = read_pdf(resume)
+        deck_text = read_pdf(deck)
 
     # Create a text input area for pasting the company description
     company_description = st.text_area('Paste the company description here')
