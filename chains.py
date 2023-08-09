@@ -8,7 +8,6 @@ from langchain.schema import SystemMessage, HumanMessage
 
 from prompts import system_prompt, user_information
 
-
 def get_pass_email_langchain_normal_prompts(
         founder_names: str,
         deck: Optional[str] = None,
@@ -22,17 +21,20 @@ def get_pass_email_langchain_normal_prompts(
         temperature=0.2,
         openai_api_key=openai_api_key
     )
+        
     prompt = system_prompt + "\n---\n" + user_information + "\n---\nPass Email:"
     prompt_template = PromptTemplate.from_template(prompt)
+        
     llm_chain = LLMChain(
         llm=llm,
         prompt=prompt_template
     )
 
-    concerns = concerns if concerns is not None else "None"
+    deck = deck if deck is not None else "None"
+        
     args = {
         "founder names": founder_names,
-        "pitch deck": deck,
+        "pitch deck": deck
         "company description": company_description,
         "concerns": concerns
     }
