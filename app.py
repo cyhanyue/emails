@@ -3,7 +3,7 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
-from pdf_reader import load_pdf
+from PyPDF2 import PdfReader
 
 from chains import get_pass_email_langchain_normal_prompts
 # , get_pass_email_langchain_chat_prompts, \
@@ -44,7 +44,7 @@ def build_streamlit_app():
 
     # If a resume has been uploaded, read the text from the pdf file
     if deck is not None:
-        deck_text = load_pdf(deck)
+        deck_text = PdfReader(deck)
 
     # Create a text input area for pasting the company description
     company_description = st.text_area('Paste the company description here')
