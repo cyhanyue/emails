@@ -34,13 +34,13 @@ def build_streamlit_app():
     model = 'gpt-3.5-turbo'
         
     # Create a text input area for founder names
-    founder_names = st.text_area('write founder names here')
+    founder_names = st.text_area('Write founder names here')
     
     # Create a file uploader widget for uploading a pdf file (the user's resume)
-    deck = st.file_uploader("Upload your Resume", type='pdf')
+    deck = st.file_uploader("Upload your Pitch Deck", type='pdf')
     deck_text = None
 
-    # If a resume has been uploaded, read the text from the docx file
+    # If a resume has been uploaded, read the text from the pdf file
     if deck is not None:
         deck_text = read_pdf(deck)
 
@@ -48,7 +48,7 @@ def build_streamlit_app():
     company_description = st.text_area('Paste the company description here')
 
     # Create a text input area for pasting any additional company information
-    concerns = st.text_area('write your concerns here')
+    concerns = st.text_area('Write your concerns here')
 
     # Create a button for generating the cover letter
     if st.button('Generate Pass Email'):
@@ -66,7 +66,7 @@ def build_streamlit_app():
             # If all conditions are met, call the pass email generation function
             # Show a spinner while the function is running
             with st.spinner('Generating your pass email...'):
-                result = chat_model_dict[cover_letter_type](
+                result = chat_model_dict[pass_email_type](
                     founder_names = founder_names,
                     deck=deck_text,
                     company_description=company_description,
