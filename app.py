@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from chains import get_pass_email_langchain_normal_prompts
 # , get_pass_email_langchain_chat_prompts, \
     # get_pass_email_langchain_no_chain, get_pass_email_no_langchain
-from utils import read_pdf, write_string_to_word
+from utils import write_string_to_word
 
 load_dotenv()
 
@@ -36,13 +36,13 @@ def build_streamlit_app():
     # Create a text input area for founder names
     founder_names = st.text_area('Write founder names here')
     
-    # Create a file uploader widget for uploading a pdf file (the user's resume)
-    deck = st.file_uploader("Upload your Pitch Deck", type='pdf')
-    deck_text = None
+    # # Create a file uploader widget for uploading a pdf file (the user's resume)
+    # deck = st.file_uploader("Upload your Pitch Deck", type='pdf')
+    # deck_text = None
 
-    # If a resume has been uploaded, read the text from the pdf file
-    if deck is not None:
-        deck_text = read_pdf(deck)
+    # # If a resume has been uploaded, read the text from the pdf file
+    # if deck is not None:
+    #     deck_text = read_pdf(deck)
 
     # Create a text input area for pasting the company description
     company_description = st.text_area('Paste the company description here')
@@ -68,7 +68,7 @@ def build_streamlit_app():
             with st.spinner('Generating your pass email...'):
                 result = chat_model_dict[pass_email_type](
                     founder_names = founder_names,
-                    deck=deck_text,
+                    # deck=deck_text,
                     company_description=company_description,
                     concerns=concerns,
                     openai_api_key=openai_api_key,
