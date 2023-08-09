@@ -33,9 +33,9 @@ def get_pass_email_langchain_normal_prompts(
     deck = deck if deck is not None else "None"
         
     args = {
-        "founder names": founder_names,
-        "pitch deck": deck,
-        "company description": company_description,
+        "founder_names": founder_names,
+        "deck": deck,
+        "company_description": company_description,
         "concerns": concerns
     }
 
