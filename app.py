@@ -44,7 +44,7 @@ def build_streamlit_app():
 
     # If a resume has been uploaded, read the text from the pdf file
     if deck is not None:
-        deck_text = read_pdf(deck)
+        deck_text = load_pdf(deck)
 
     # Create a text input area for pasting the company description
     company_description = st.text_area('Paste the company description here')
