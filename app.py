@@ -4,18 +4,13 @@ import streamlit as st
 from dotenv import load_dotenv
 
 from chains import get_pass_email_langchain_normal_prompts
-# , get_pass_email_langchain_chat_prompts, \
-    # get_pass_email_langchain_no_chain, get_pass_email_no_langchain
 from utils import write_string_to_word
 from utils import read_pdf
 
 load_dotenv()
 
 chat_model_dict = {
-    'LangChain Prompt Template': get_pass_email_langchain_normal_prompts,
-    # 'Langchain ChatPrompt Template': get_cover_letter_langchain_chat_prompts,
-    # "Langchain no chain": get_cover_letter_langchain_no_chain,
-    # 'Custom code': get_cover_letter_no_langchain
+    'LangChain Prompt Template': get_pass_email_langchain_normal_prompts 
 }
 
 def build_streamlit_app():
