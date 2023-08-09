@@ -71,7 +71,7 @@ def build_streamlit_app():
             # Show a spinner while the function is running
             with st.spinner('Generating your pass email...'):
                 result = chat_model_dict[cover_letter_type](
-                    founder_names = founder_names
+                    founder_names = founder_names,
                     deck=deck_text,
                     company_description=company_description,
                     concerns=concerns,
