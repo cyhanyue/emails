@@ -3,6 +3,8 @@ import os
 import streamlit as st
 from dotenv import load_dotenv
 
+from pdf_reader import load_pdf
+
 from chains import get_pass_email_langchain_normal_prompts
 # , get_pass_email_langchain_chat_prompts, \
     # get_pass_email_langchain_no_chain, get_pass_email_no_langchain
