@@ -1,5 +1,5 @@
 from docx import Document
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 def write_string_to_word(text, filename):
     doc = Document()
