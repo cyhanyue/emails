@@ -82,7 +82,7 @@ def build_streamlit_app():
                     deck=deck_text,
                     company_description=company_description,
                     areas=areas,
-                    company_website = company_website_text
+                    company_website = company_website_text,
                     openai_api_key=openai_api_key,
                     model=model
                 )
