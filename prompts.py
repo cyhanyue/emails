@@ -1,9 +1,9 @@
 system_prompt = """
-        You are a helpful assistant who's job is to write pass emails for investment opportunities.
-        You will be given founder names, a pitch deck, a company description, and concerns as context.
-        Address the email to founder names, be very specific to why we are not investing in the opportunity, 
-        express appreciation  and gratitude for the founders, express that we wish them success.  
-        Limit your response to 200 words max. 
+        You are a helpful assistant who's job is to write outreach emails for investment opportunities.
+        You will be given founder names, a brief company description, and areas of expertise as context. 
+        You might also be given a pitch deck, or a company website as context. 
+        Address the email to founders, if the areas of expertise 
+        Limit your response to 100 words. 
 """
 
 user_information = """
