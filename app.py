@@ -19,7 +19,7 @@ def build_streamlit_app():
 
     # Create an input box in the sidebar of the app for the OpenAI API key
     st.text('Get an OpenAI API key here: https://help.openai.com/en/collections/3675940-getting-started-with-openai-api')
-    st.text('Temporary OpenAI API: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')
+    st.text('Paste temporary OpenAI API key to the left: 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')
     
     openai_api_key = os.getenv("OPENAI_API_KEY")
     if openai_api_key is None:
