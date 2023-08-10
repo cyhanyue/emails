@@ -34,9 +34,9 @@ def build_streamlit_app():
     founder_names = st.text_area('Write founder names here')
 
     # Create a text input area for pasting the company description
-    company_description = st.text_area('Paste the company description here')
+    company_name = st.text_area('Paste the company name here')
 
-    # Create a text input area for pasting any additional company information
+    # Create a text input area for selectiong an area of expertise
     areas = st.selectbox(
         'Select the industry the company fall into',
         (
@@ -58,11 +58,11 @@ def build_streamlit_app():
         deck_text = read_pdf(deck)
 
    # create a text input area for pasting a company website
-    company_website =st.text_area('Enter Company Webstie:', 'Full URL with https:// ...')
+    company_description =st.text_area('Enter brief company description')
 
-    # if a company website is provided, read the text from the url 
-    if company_website is not None:
-        company_website_text = extract_text_from_url(company_website)
+    # if a company description is provided, use it
+    if company_description is not None:
+        company_description = company_description
 
     # Create a button for generating the cover letter
     if st.button('Generate Email'):
@@ -70,9 +70,9 @@ def build_streamlit_app():
         if not openai_api_key or not openai_api_key.startswith('sk-'):
             # Display a warning if the OpenAI API key is not provided or is invalid
             st.warning('Please enter your OpenAI API key!', icon='⚠️')
-        elif not company_description:
-            # Display a warning if the company description is not provided
-            st.warning('Please enter the company description!', icon='⚠️')
+        elif not company_name:
+            # Display a warning if the company name is not provided
+            st.warning('Please enter the company name!', icon='⚠️')
         else:
             # If all conditions are met, call the pass email generation function
             # Show a spinner while the function is running
@@ -80,9 +80,9 @@ def build_streamlit_app():
                 result = chat_model_dict[pass_email_type](
                     founder_names = founder_names,
                     deck=deck_text,
-                    company_description=company_description,
+                    company_name=company_name,
                     areas=areas,
-                    company_website = company_website_text,
+                    company_description = company_description,
                     openai_api_key=openai_api_key,
                     model=model
                 )
