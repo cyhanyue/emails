@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 from chains import get_email_langchain_normal_prompts
 from utils import write_string_to_word
 from utils import read_pdf
-from utils import extract_text_from_url
 
 load_dotenv()
 
