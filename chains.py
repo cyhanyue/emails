@@ -10,12 +10,12 @@ from prompts import system_prompt, user_information
 
 def get_email_langchain_normal_prompts(
         founder_names: str,
-        company_description: str,
+        company_name: str,
         openai_api_key: str,
         model: str,
         areas: str,
         deck: Optional[str] = None,
-        company_website: Optional[str] = None
+        company_description: Optional[str] = None
 ) -> str:
     llm = ChatOpenAI(
         model=model,
@@ -32,14 +32,14 @@ def get_email_langchain_normal_prompts(
     )
 
     deck = deck if deck is not None else "None"
-    company_website = company_website if company_website is not None else "None"
+    company_description = company_description if company_description is not None else "None"
         
     args = {
         "founder_names": founder_names,
         "deck": deck,
-        "company_description": company_description,
+        "company_name": company_name,
         "areas": areas,
-        "company_website": company_website
+        "company_description": company_description
     }
 
     return llm_chain.run(args)
