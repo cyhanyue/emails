@@ -11,7 +11,7 @@ from utils import extract_text_from_url
 load_dotenv()
 
 chat_model_dict = {
-    'LangChain Prompt Template': get_pass_email_langchain_normal_prompts 
+    'LangChain Prompt Template': get_email_langchain_normal_prompts 
 }
 
 def build_streamlit_app():
@@ -47,6 +47,13 @@ def build_streamlit_app():
     if deck is not None:
         deck_text = read_pdf(deck)
 
+   # create a text input area for pasting a company website
+    company_website =st.text_area('Enter Company Webstie:', 'Full URL with https:// ...')
+
+    # if a company website is provided, read the text from the url 
+    if company_website is not None:
+        company_website_text = extract_text_from_url(company_website)
+
     # Create a button for generating the cover letter
     if st.button('Generate Email'):
         # Check if the OpenAI key, resume, and company description are provided
@@ -65,6 +72,7 @@ def build_streamlit_app():
                     deck=deck_text,
                     company_description=company_description,
                     areas=areas,
+                    company_website = company_website_text
                     openai_api_key=openai_api_key,
                     model=model
                 )
