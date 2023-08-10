@@ -20,8 +20,8 @@ def build_streamlit_app():
     # Create an input box in the sidebar of the app for the OpenAI API key
     openai_api_key = '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' 
     # openai_api_key = os.getenv("OPENAI_API_KEY")
-    if openai_api_key is None:
-        openai_api_key = st.sidebar.text_input('OpenAI API Key', 'visit )
+    # if openai_api_key is None:
+    #     openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
     pass_email_type = st.sidebar.selectbox(
         'Select the outreach email generation method',
