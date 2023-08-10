@@ -18,10 +18,12 @@ def build_streamlit_app():
     st.title('Outreach Email Generator')
 
     # Create an input box in the sidebar of the app for the OpenAI API key
-    openai_api_key = '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' 
-    # openai_api_key = os.getenv("OPENAI_API_KEY")
-    # if openai_api_key is None:
-    #     openai_api_key = st.sidebar.text_input('OpenAI API Key')
+    st.sidebar.text('Get an OpenAI API key here: https://help.openai.com/en/collections/3675940-getting-started-with-openai-api')
+    st.sidebar.text('Temporary OpenAI API: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')
+    
+    openai_api_key = os.getenv("OPENAI_API_KEY")
+    if openai_api_key is None:
+        openai_api_key = st.sidebar.text_input('OpenAI API Key')
 
     pass_email_type = st.sidebar.selectbox(
         'Select the outreach email generation method',
@@ -31,10 +33,10 @@ def build_streamlit_app():
     model = 'gpt-3.5-turbo'
         
     # Create a text input area for founder names
-    founder_names = st.text_area('Paste the founder names here')
+    founder_names = st.text_input('Paste the founder names here')
 
     # Create a text input area for pasting the company description
-    company_name = st.text_area('Paste the company name here')
+    company_name = st.text_input('Paste the company name here')
 
     # Create a text input area for selectiong an area of expertise
     areas = st.selectbox(
