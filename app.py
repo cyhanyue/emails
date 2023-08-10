@@ -37,7 +37,17 @@ def build_streamlit_app():
     company_description = st.text_area('Paste the company description here')
 
     # Create a text input area for pasting any additional company information
-    areas = st.text_area('Write down what areas the company belongs into')
+    areas = st.selectbox(
+        'Select the industry the company fall into',
+        (
+            'eCommerce',
+            'Fintech',
+            'SaaS',
+            'Digital Health',
+            'Health and Wellness',
+            'GSB'
+        )
+    )
 
     # Create a file uploader widget for uploading a pdf file (the user's resume)
     deck = st.file_uploader("Upload Pitch Deck", type='pdf')
