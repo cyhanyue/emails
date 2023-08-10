@@ -14,7 +14,8 @@ def get_email_langchain_normal_prompts(
         openai_api_key: str,
         model: str,
         areas: str,
-        deck: Optional[str] = None
+        deck: Optional[str] = None,
+        company_website: Optional[str] = None
 ) -> str:
     llm = ChatOpenAI(
         model=model,
@@ -31,12 +32,14 @@ def get_email_langchain_normal_prompts(
     )
 
     deck = deck if deck is not None else "None"
+    company_website = company_website if company_website is not None else "None"
         
     args = {
         "founder_names": founder_names,
         "deck": deck,
         "company_description": company_description,
-        "areas": concerns
+        "areas": areas,
+        "company_website": company_website
     }
 
     return llm_chain.run(args)
