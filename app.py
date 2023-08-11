@@ -18,11 +18,12 @@ def build_streamlit_app():
     st.title('Outreach Email Generator')
 
     # Create an input box in the sidebar of the app for the OpenAI API key
+    st.text('I am an email assistant that writes outreach emails on behalf of PVP.\nTell me the name of the startup, the name of the founder, and what the company does.\nIf you have their pitch deck available, upload the pitch deck for me to craft a more personalized message!\nYou will also need an OpenAI API key to ask me to write an email for you.')
     st.text('Get an OpenAI API key here:\nhttps://help.openai.com/en/collections/3675940-getting-started-with-openai-api')
     
     openai_api_key = os.getenv("OPENAI_API_KEY")
     if openai_api_key is None:
-        openai_api_key = st.sidebar.text_input('OpenAI API Key')
+        openai_api_key = st.text_input('OpenAI API Key')
 
     pass_email_type = st.sidebar.selectbox(
         'Select the outreach email generation method',
